@@ -2,21 +2,19 @@ package com.chernenko.phonecontacs.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@ToString
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@Getter
-@Setter
 public class Contact {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String name;
 
     @ElementCollection
     private Set<String> emails;
